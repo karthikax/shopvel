@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Shopvel
+        psr4_prefix: Shopvel
+        src_path: app
