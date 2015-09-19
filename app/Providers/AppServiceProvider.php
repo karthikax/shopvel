@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::addLocation( base_path('resources/themes/' . get_option('theme') . '/views') );
+        View::addLocation( base_path('resources/views') );
     }
 
     /**

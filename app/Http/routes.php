@@ -12,6 +12,7 @@
 */
 
 Route::get('/install','InstallController@index');
+Route::post('/install','InstallController@proceed');
 
 Route::get('/', function () {
     return view('welcome');

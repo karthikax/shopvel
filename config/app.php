@@ -47,12 +47,14 @@ return [
     |--------------------------------------------------------------------------
     |
     | The application locale determines the default locale that will be used
-    | by the translation service provider. You are free to set this value
-    | to any of the locales which will be supported by the application.
+    | by the translation service provider. "locales" tells the application
+    | the list of translation services available. You are free to change.
     |
     */
 
     'locale' => 'en',
+
+    'locales' => [ 'en' => 'English', 'hi' => 'Hindi', 'fr' => 'French', 'de' => 'German', 'el' => 'Greek', 'it' => 'Italian', 'ja' => 'Japanese', 'ar' => 'Arabic' ],
 
     /*
     |--------------------------------------------------------------------------
