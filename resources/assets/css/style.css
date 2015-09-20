@@ -1,3 +1,13 @@
+#menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: #434A50;
+    color: #fff;
+    box-shadow: 0 3px 7px #999;
+}
+
 .select {
 	cursor: pointer;
 	position: relative;

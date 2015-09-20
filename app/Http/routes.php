@@ -14,6 +14,12 @@
 Route::get('/install','InstallController@index');
 Route::post('/install','InstallController@proceed');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/api/csrf', function () {
+	return csrf_token();
 });
+
+Route::get('/', function () {
+	return view('welcome');
+});
+
+Route::get('/index','MainController@index');
