@@ -11,6 +11,10 @@
 |
 */
 
+$admin_url = '/' . get_option('adminurl');
+$login_url = '/' . get_option('loginurl');
+$register_url = '/' . get_option('registerurl');
+
 Route::get('/install','InstallController@index');
 Route::post('/install','InstallController@proceed');
 
@@ -23,3 +27,6 @@ Route::get('/', function () {
 });
 
 Route::get('/index','MainController@index');
+Route::get($admin_url,'DashboardController@index');
+Route::get($login_url,'Auth\AuthController@getLogin');
+Route::post($login_url,'Auth\AuthController@postLogin');

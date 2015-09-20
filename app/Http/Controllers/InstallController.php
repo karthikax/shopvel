@@ -58,6 +58,8 @@ class InstallController extends BaseController {
 				add_option('sitedescription', '');
 				add_option('adminurl', $url);
 				add_option('theme', 'default');
+				add_option('loginurl', 'login');
+				add_option('registerurl', 'register');
 				$this->data['currStep'] = "3";
 			}
 		}
