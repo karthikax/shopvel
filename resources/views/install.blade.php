@@ -39,6 +39,9 @@
 		.title {
 			font-size: 56px;
 		}
+		.description{
+			margin-bottom: 20px;
+		}
 		.list-only + .styledSelect + .options {
 			min-width: 300px;
 			max-height: 200px;
@@ -69,7 +72,13 @@
 		<div class="container no-wrap">
 			<div class="content">
 				<div class="title">Already installed.</div>
-				<center>You need to drop all tables in your database to reinstall.</center>
+				<div class="description">You need to drop all tables in your database to reinstall.<br>DANGER: By reinstalling you will loose all your data.</div>
+				<div class="col-sm-6">
+					<a href="{{ url('/'.get_option('loginurl')) }}" class="btn btn-success btn-block">Login</a>
+				</div>
+				<div class="col-sm-6">
+					<a href="{{ url('/') }}" class="btn btn-success btn-block">Go Home</a>
+				</div>
 			</div>
 		</div>
 	@elseif( $currStep == "1" )
@@ -164,9 +173,12 @@
 			</div>
 		</div>
 	@elseif( $currStep == "3" )
-		<div class="container main">
+		<div class="container no-wrap">
 			<div class="content">
 				<div class="title">Completed</div>
+				<div class="col-sm-6 col-sm-offset-3">
+					<a href="{{ url('/'.get_option('loginurl')) }}" class="btn btn-success btn-block">Login</a>
+				</div>
 			</div>
 		</div>
 	@endif
