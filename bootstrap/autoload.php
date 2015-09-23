@@ -32,3 +32,10 @@ $compiledPath = __DIR__.'/cache/compiled.php';
 if (file_exists($compiledPath)) {
     require $compiledPath;
 }
+
+require __DIR__.'/../app/Http/Helpers/option.php';
+require __DIR__.'/../app/Http/Helpers/user.php';
+require __DIR__.'/../app/Http/Helpers/plugin.php';
+require __DIR__.'/../app/Http/Helpers/template.php';
+require __DIR__.'/../app/Http/Helpers/default-filters.php';
+require __DIR__.'/../app/Http/Helpers/sv-scripts.php';

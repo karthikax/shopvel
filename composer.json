@@ -22,9 +22,6 @@
             "Shopvel\\": "app/"
         },
         "files": [
-            "app/Http/Helpers/option.php",
-            "app/Http/Helpers/user.php",
-            "app/Http/Helpers/plugin.php"
         ]
     },
     "autoload-dev": {
