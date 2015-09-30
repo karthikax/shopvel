@@ -2,10 +2,10 @@
 
 /*
 |--------------------------------------------------------------------------
-| Application Options Helpers
+| Application User Helpers
 |--------------------------------------------------------------------------
 |
-| Here is where you can register all option helper functions for application.
+| Here is where you can register all user helper functions for application.
 | It's a breeze. Simply create functions and use it wherever required.
 |
 */
