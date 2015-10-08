@@ -33,6 +33,7 @@ if (file_exists($compiledPath)) {
     require $compiledPath;
 }
 
+require __DIR__.'/../app/Http/Helpers/load.php';
 require __DIR__.'/../app/Http/Helpers/option.php';
 require __DIR__.'/../app/Http/Helpers/user.php';
 require __DIR__.'/../app/Http/Helpers/plugin.php';
