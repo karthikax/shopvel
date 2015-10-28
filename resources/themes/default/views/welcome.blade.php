@@ -1,3 +1,9 @@
+<?php
+do_action( 'init' );
+wp_enqueue_scripts();
+wp_enqueue_script( 'script-name', '/js/example.js', array(), '1.0.0', true );
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +35,9 @@
 	<div class="container">
 		<div class="title">This is Default Theme</div>
 		<main id="main" ng-view></main>
+		<?php
+		var_dump(wp_scripts());
+		?>
 	</div>
 
 	<script type="text/javascript" src="{{ asset('resources/assets/js/jquery-1.11.3.min.js') }}"></script>
