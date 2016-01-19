@@ -11,9 +11,15 @@
 |
 */
 
-$admin_url = '/' . get_option('adminurl');
-$login_url = '/' . get_option('loginurl');
-$register_url = '/' . get_option('registerurl');
+if(Schema::hasTable('options')){
+	$admin_url = '/' . get_option('adminurl');
+	$login_url = '/' . get_option('loginurl');
+	$register_url = '/' . get_option('registerurl');
+} else{
+	$admin_url = '/admin';
+	$login_url = '/login';
+	$register_url = '/register';
+}
 
 Route::get('/install','InstallController@index');
 Route::post('/install','InstallController@proceed');
