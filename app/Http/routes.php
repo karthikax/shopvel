@@ -11,6 +11,8 @@
 |
 */
 
+global $admin_url, $login_url, $register_url;
+
 if(Schema::hasTable('options')){
 	$admin_url = '/' . get_option('adminurl');
 	$login_url = '/' . get_option('loginurl');
