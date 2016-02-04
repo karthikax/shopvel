@@ -543,3 +543,41 @@ function script_concat_settings() {
 			$compress_css = false;
 	}
 }
+
+/**
+ * Display the classes for the body element.
+ *
+ * @since 2.8.0
+ *
+ * @param string|array $class One or more classes to add to the class list.
+ */
+function body_class( $class = '' ) {
+	// Separates classes with a single space, collates classes for body element
+	echo 'class="' . join( ' ', get_body_class( $class ) ) . '"';
+}
+
+/**
+ * Retrieve the classes for the body element as an array.
+ *
+ * @since 2.8.0
+ *
+ * @global WP_Query $wp_query
+ * @global wpdb     $wpdb
+ *
+ * @param string|array $class One or more classes to add to the class list.
+ * @return array Array of classes.
+ */
+function get_body_class( $class = '' ) {
+	global $wp_query, $wpdb;
+
+	$classes = array();
+
+	if( Auth::check() )
+		$classes[] = 'logged';
+
+	return $classes;
+}
+
+function theme_asset( $path ){
+	echo asset('resources/themes/' . get_option('theme') . '/' . $path );
+}
