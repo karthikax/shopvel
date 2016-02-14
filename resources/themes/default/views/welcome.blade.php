@@ -32,9 +32,21 @@ wp_enqueue_script( 'script-name', '/js/example.js', array(), '1.0.0', true );
 			</ul>
 		</nav>
 	</aside>
-	<div class="container">
-		<div class="title">This is Default Theme</div>
-		<main id="main" ng-view></main>
+	<div class="main-wrap">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" class="navbar-toggle collapsed">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="#" class="navbar-brand">Shopvel</a>
+				</div>
+			</div>
+		</nav>
+		<main id="main" ng-view="ng-view"></main>
 		<?php
 		var_dump(wp_scripts());
 		?>

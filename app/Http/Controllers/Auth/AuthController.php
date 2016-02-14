@@ -4,6 +4,7 @@ namespace Shopvel\Http\Controllers\Auth;
 
 use Shopvel\User;
 use Validator;
+use Auth;
 use Shopvel\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -46,7 +47,9 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|username|max:255|unique:users',
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
     }
@@ -59,10 +62,49 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        $role = isset( $data['seller'] ) ? 'seller' : 'customer';
+
         return User::create([
-            'name' => $data['name'],
+            'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'role' => $role,
+            'name' => $data['name'],
+            'activated' => 0
         ]);
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postRegister(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        Auth::login($this->create($request->all()));
+        $request->session()->flash('alert-success', 'Your account has been successfully created!');
+
+        return redirect($this->redirectPath());
+    }
+
+    /**
+     * Logs out a user.
+     *
+     * @param  array  $data
+     * @return User
+     */
+    protected function logout()
+    {
+        Auth::logout();
+        return 1;
     }
 }

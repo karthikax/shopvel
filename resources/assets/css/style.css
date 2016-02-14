@@ -1,11 +1,13 @@
 #menu {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    background: #434A50;
-    color: #fff;
-    box-shadow: 0 3px 7px #999;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 160px;
+	padding-top: 51px;
+	background: #566473;
+	color: #fff;
+	z-index: 1100;
 }
 
 #adminbar {
@@ -108,4 +110,13 @@
 	/*transform: translate(-50%,-50%);
 	-webkit-transform: translate(-50%,-50%);
 	-moz-transform: translate(-50%,-50%);*/
+}
+
+.navbar{
+	z-index: 1200;
+}
+
+.main-wrap{
+	padding-top: 51px;
+	padding-left: 160px;
 }
