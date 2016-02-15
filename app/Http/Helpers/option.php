@@ -10,16 +10,16 @@
 |
 */
 
-use Shopvel\Options;
+use Shopvel\Option;
 
 function add_option( $option, $value = '' ) {
-	$options = new Options;
-	$options->option_name = $option;
-	$options->option_value = $value;
-	$options->save();
+	$option = new Option;
+	$option->option_name = $option;
+	$option->option_value = $value;
+	$option->save();
 }
 
-function get_option( $option ) {
-	$options = Options::where('option_name', '=', $option)->pluck('option_value');
-	return $options;
+function get_option( $name ) {
+	$option = Option::where('option_name', '=', $name)->pluck('option_value');
+	return $option;
 }
