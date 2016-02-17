@@ -568,12 +568,17 @@ function body_class( $class = '' ) {
  * @return array Array of classes.
  */
 function get_body_class( $class = '' ) {
-	global $wp_query, $wpdb;
+	global $wp_query, $wpdb, $admin_url;
 
 	$classes = array();
 
 	if( Auth::check() )
 		$classes[] = 'logged';
+	if( Request::is($admin_url) ){
+		$classes[] = 'backend';
+	}else{
+		$classes[] = 'frontend';
+	}
 
 	return $classes;
 }
