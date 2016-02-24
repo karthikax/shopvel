@@ -72,6 +72,10 @@ Route::group(array('prefix'=>'/','before'=>'auth|api.csrf'),function(){
 	Route::delete('/posts/{id}','PostController@delete');
 });
 
+Route::any('{unknown}', function ($unknown) {
+	return view('welcome');
+})->where('unknown', '([A-z\d-\/_.]+)?');
+
 //Auth filtering
 Route::filter('auth', function()
 {
