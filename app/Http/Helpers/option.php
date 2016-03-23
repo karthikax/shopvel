@@ -23,3 +23,12 @@ function get_option( $name ) {
 	$option = Option::where('option_name', '=', $name)->pluck('option_value');
 	return $option;
 }
+
+function update_option( $option, $value = '' ) {
+	$options = Options::where('option_name', '=', $option);
+	if( ! $options->first() ){
+		add_option( $option, $value );
+	}else{
+		$options->update(['option_value' => $value]);
+	}
+}
