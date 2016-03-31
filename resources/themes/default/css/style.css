@@ -1,0 +1,171 @@
+html{
+	height: 100%;
+}
+
+body{
+	font-family: 'Open Sans', sans-serif, Helvetica;
+	position: relative;
+	height: auto;
+	min-height: 100%;
+}
+
+.select {
+	cursor: pointer;
+	position: relative;
+}
+
+.select select{
+	height: 32px;
+}
+
+.s-hidden {
+	visibility: hidden;
+	padding-right: 10px;
+}
+
+.styledSelect {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 4px 0 0 15px;
+	border: 2px solid #c7d5db;
+	border-radius: 5em;
+}
+
+.styledSelect:after {
+	content: "";
+	width: 0;
+	height: 0;
+	border: 5px solid transparent;
+	border-color: #948CF1 transparent transparent transparent;
+	position: absolute;
+	top: 12px;
+	right: 15px;
+}
+
+.styledSelect:active, .styledSelect.active {
+	background-color: #E8EBF2;
+}
+
+.options {
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	left: 0;
+	z-index: 999;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	border: 2px solid #7582A5;
+	background-color: white;
+	-webkit-box-shadow: 0 1px 2px;
+	-moz-box-shadow: 0 1px 2px;
+	box-shadow: 0 1px 2px;
+	border-radius: 0 0 3px 3px;
+}
+
+.options li {
+	padding: 5px 5px 5px 20px;
+}
+
+.options li:first-child {
+	border-radius: 0;
+}
+
+.options li:last-child {
+	border-radius: 0 0 2px 2px;
+}
+
+.options li:hover, .options li.active {
+	background-color: #96A7E2;
+	color: white;
+}
+
+.list-only, .list-only + .styledSelect {
+	display: none;
+}
+
+.list-only + .styledSelect + .options {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	/*transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);*/
+}
+
+
+/* THEME SPECIFIC */
+
+a:hover{
+	text-decoration: none;
+}
+
+.form-control, .btn{
+	border-radius: 0;
+}
+
+#menu {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 160px;
+	padding-top: 51px;
+	background: #434A50;
+	color: #fff;
+	z-index: 1100;
+}
+
+.logged #menu{
+	padding-top: 83px;
+}
+
+.logged .navbar-fixed-top{
+	top: 32px;
+}
+
+#menu .menu-main{
+	margin-top: 10px;
+}
+
+#menu ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#menu a{
+	display: block;
+	color: #eee;
+	text-decoration: none;
+}
+
+#menu a:hover{
+	background: #363E44;
+}
+
+.menu-name{
+	padding: 8px 0;
+	padding-left: 10px;
+}
+
+.main-wrap{
+	margin-top: 51px;
+	margin-left: 160px;
+	padding: 20px;
+}
+
+.navbar{
+	z-index: 1200;
+}
+
+.topbar{
+	margin: 0;
+	box-shadow: 0 2px 3px rgb(51,51,51);
+	box-shadow: 0 2px 3px rgba(51,51,51,.6);
+	z-index: 999;
+}
