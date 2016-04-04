@@ -12,7 +12,7 @@ wp_enqueue_script( 'script-name', '/js/example.js', array(), '1.0.0', true );
 	<base href="{{ url('/') }}/" />
 	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 	<link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/css/bootstrap.min.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('resources/assets/css/style.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ theme_asset('css/style.css') }}">
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -21,16 +21,13 @@ wp_enqueue_script( 'script-name', '/js/example.js', array(), '1.0.0', true );
 	<![endif]-->
 </head>
 
-<body ng-app="shopvel" ng-controller="mainController">
+<body ng-app="shopvel" ng-controller="mainController" <?php body_class(); ?>>
 	<aside id="menu">
-		<nav>
-			<ul>
-				<li>Menu1</li>
-				<li>Menu2</li>
-				<li>Menu3</li>
-				<li>Menu4</li>
-			</ul>
-		</nav>
+		<ul class="menu-main">
+			<li class="menu-item"><a href="{{ url('/') }}"><div class="menu-name">Home</div></a></li>
+			<li class="menu-item"><a href="shop"><div class="menu-name">Shop</div></a></li>
+			<li class="menu-item"><a href="categories"><div class="menu-name">Categories</div></a></li>
+		</ul>
 	</aside>
 	<div class="main-wrap">
 		<nav class="navbar navbar-default navbar-fixed-top">
@@ -42,26 +39,22 @@ wp_enqueue_script( 'script-name', '/js/example.js', array(), '1.0.0', true );
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="#" class="navbar-brand">Shopvel</a>
+					<a href="{{ url('/') }}" class="navbar-brand">Shopvel</a>
 				</div>
 			</div>
 		</nav>
 		<main id="main" ng-view="ng-view"></main>
-		<?php
-		var_dump(wp_scripts());
-		?>
+		<?php //var_dump(wp_scripts()); ?>
 	</div>
 
 	<script type="text/javascript" src="{{ asset('resources/assets/js/jquery-1.11.3.min.js') }}"></script>
 
 	<script type="text/javascript" src="{{ asset('resources/assets/js/angular.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('resources/assets/js/angular-route.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('resources/assets/js/app.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('resources/assets/js/routes.js') }}"></script>
+	<script type="text/javascript" src="{{ theme_asset('js/app.js') }}"></script>
+	<script type="text/javascript" src="{{ theme_asset('js/routes.js') }}"></script>
 
-	<script type="text/javascript" src="{{ asset('resources/assets/js/script.js') }}"></script>
-	@if(Auth::check())
-		<div id="adminbar">Admin Bar</div>
-	@endif
+	<script type="text/javascript" src="{{ theme_asset('js/script.js') }}"></script>
+	@include('adminbar')
 </body>
 </html>
